@@ -1,0 +1,42 @@
+[
+    {
+        "Account Number" : 10000,
+        "Account Type" : "Savings",
+        "Balance" : 1050000,
+        "Last Transaction" : "23-05-2024",
+        "Account Created" : "17-02-2018",
+        "Account Holder Type" : "Customer"
+    },
+    {
+        "Account Number" : 10001,
+        "Account Type" : "Savings",
+        "Balance" : 950000,
+        "Last Transaction" : "28-05-2024",
+        "Account Created" : "04-09-2015",
+        "Account Holder Type" : "Customer"        
+    },
+    {
+        "Account Number" : 10002,
+        "Account Type" : "Current",
+        "Balance" : 2365000,
+        "Last Transaction" : "01-04-2024",
+        "Account Created" : "10-03-2011",
+        "Account Holder Type" : "Banker"
+    },
+    {
+        "Account Number" : 10003,
+        "Account Type" : "Current",
+        "Balance" : 23000,
+        "Last Transaction" : "25-01-2024",
+        "Account Created" : "17-12-2022",
+        "Account Holder Type" : "Customer"
+    },
+    {
+        "Account Number" : 10004,
+        "Account Type" : "Savings",
+        "Balance" : 50000,
+        "Last Transaction" : "05-03-2024",
+        "Account Created" : "01-06-2021",
+        "Account Holder Type" : "Banker"
+    }
+]

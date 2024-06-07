@@ -1,0 +1,52 @@
+[
+    {
+        "Name": "Anit Agarwal",
+        "Role" : "Customer",
+        "Account Number" : 10000,
+        "Email": "anituser0@gmail.com",
+        "Phone" : 8506090057,
+        "Address" : "B-001, Gardenia Greens, Vasundhara Sec-18, Ghaziabad",
+        "D.O.B" : "05-03-2004",
+        "Password" : "user0000"
+    },
+    {
+        "Name": "Diya Sharma",
+        "Role" : "Customer",
+        "Account Number" : 10001,
+        "Email": "diyauser1@gmail.com",
+        "Phone" : 8506090058,
+        "Address" : "16-B, Aura Avenue, Chandigarh-Kharar Highway, Punjab",
+        "D.O.B" : "28-09-2004",
+        "Password" : "user0001"
+    },
+    {
+        "Name": "Manish Aggarwal",
+        "Role" : "Banker",
+        "Account Number" : 10002,
+        "Email": "manishuser2@gmail.com",
+        "Phone" : 8506090059,
+        "Address" : "C-01 Palm Grove Heights, Ardee City, Sec-52, Gurugram",
+        "D.O.B" : "30-09-1984",
+        "Password" : "banker0002"
+    },
+    {
+        "Name": "Nilesh Prajapat",
+        "Role" : "Customer",
+        "Account Number" : 10003,
+        "Email": "nileshuser3@gmail.com",
+        "Phone" : 8506090060,
+        "Address" : "458, Ground Floor, Maitri Lane, Sec-5, Vaishali, Ghaziabad",
+        "D.O.B" : "20-01-2003",
+        "Password" : "user0003"
+    },
+    {
+        "Name": "Chinmay Mankani",
+        "Role" : "Banker",
+        "Account Number" : 10004,
+        "Email": "chinmayuser4@gmail.com",
+        "Phone" : 8506090061,
+        "Address" : "C-1104 Star Rameshwaram, Rajnagar Extension, Ghaziabad",
+        "D.O.B" : "29-12-2004",
+        "Password" : "banker0004"
+    }
+]
