@@ -1,0 +1,132 @@
+[
+    {
+        "Account Number": 10000,
+        "Transactions": [
+            {
+                "Transaction Date": "23-05-2024",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10005,
+                "Amount": 5000
+            },
+            {
+                "Transaction Date": "23-04-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10010,
+                "Received From": null,
+                "Amount": 2000
+            },
+            {
+                "Transaction Date": "23-02-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10010,
+                "Received From": null,
+                "Amount": 12000
+            }
+        ]
+    },
+    {
+        "Account Number": 10001,
+        "Transactions": [
+            {
+                "Transaction Date": "28-05-2024",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10006,
+                "Amount": 100
+            },
+            {
+                "Transaction Date": "29-04-2024",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10011,
+                "Amount": 15000
+            },
+            {
+                "Transaction Date": "29-03-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10012,
+                "Received From": null,
+                "Amount": 200
+            }
+        ]
+    },
+    {
+        "Account Number": 10002,
+        "Transactions": [
+            {
+                "Transaction Date": "01-04-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10007,
+                "Received From": null,
+                "Amount": 95000
+            },
+            {
+                "Transaction Date": "1-03-2024",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10013,
+                "Amount": 2000
+            },
+            {
+                "Transaction Date": "23-02-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10013,
+                "Received From": null,
+                "Amount": 1000
+            }
+        ]
+    },
+    {
+        "Account Number": 10003,
+        "Transactions": [
+            {
+                "Transaction Date": "25-01-2024",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10014,
+                "Amount": 5000
+            },
+            {
+                "Transaction Date": "25-12-2023",
+                "Transaction Type": "Debit",
+                "Paid To": 10014,
+                "Received From": null,
+                "Amount": 1500
+            },
+            {
+                "Transaction Date": "25-11-2023",
+                "Transaction Type": "Credit",
+                "Paid To": null,
+                "Received From": 10015,
+                "Amount": 1200
+            }
+        ]
+    },
+    {
+        "Account Number": 10004,
+        "Transactions": [
+            {
+                "Transaction Date": "05-03-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10015,
+                "Received From": null,
+                "Amount": 1800
+            },
+            {
+                "Transaction Date": "12-01-2024",
+                "Transaction Type": "Debit",
+                "Paid To": 10015,
+                "Received From": null,
+                "Amount": 100
+            },
+            {
+                "Transaction Date": "11-12-2023",
+                "Transaction Type": "Debit",
+                "Paid To": 10008,
+                "Received From": null,
+                "Amount": 500
+            }
+        ]
+    }
+]

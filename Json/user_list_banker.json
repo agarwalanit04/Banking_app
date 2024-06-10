@@ -1,0 +1,37 @@
+[
+    {
+        "AccountNumber" : 10000,
+        "Name": "Anit Agarwal",
+        "Email": "anituser0@gmail.com",
+        "Phone" : 8506090057,
+        "Address" : "B-001, Gardenia Greens, Vasundhara Sec-18, Ghaziabad"
+    },
+    {
+        "AccountNumber" : 10001,
+        "Name": "Diya Sharma",
+        "Email": "diyauser1@gmail.com",
+        "Phone" : 8506090058,
+        "Address" : "16-B, Aura Avenue, Chandigarh-Kharar Highway, Punjab"
+    },
+    {
+        "AccountNumber" : 10002,
+        "Name": "Manish Aggarwal",
+        "Email": "manishuser2@gmail.com",
+        "Phone" : 8506090059,
+        "Address" : "C-01 Palm Grove Heights, Ardee City, Sec-52, Gurugram"
+    },
+    {
+        "AccountNumber" : 10003,
+        "Name": "Nilesh Prajapat",
+        "Email": "nileshuser3@gmail.com",
+        "Phone" : 8506090060,
+        "Address" : "458, Ground Floor, Maitri Lane, Sec-5, Vaishali, Ghaziabad"
+    },
+    {
+        "Account Number" : 10004,
+        "Name": "Chinmay Mankani",
+        "Email": "chinmayuser4@gmail.com",
+        "Phone" : 8506090061,
+        "Address" : "C-1104 Star Rameshwaram, Rajnagar Extension, Ghaziabad"
+    }
+]

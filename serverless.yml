@@ -1,0 +1,18 @@
+service: bankingapp
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    MONGODB_URI: ${env:MONGODB_URL}
+
+functions:
+  app:
+    handler: handler.app
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
+
+plugins:
+  - serverless-offline

@@ -1,0 +1,16 @@
+[
+    {
+        "Banker Name" : "Manish Aggarwal",
+        "Employee ID" : 6500,
+        "Account Number" : 10002,
+        "Branch" : "Investment",
+        "D.O.B" : "30-09-1984"
+    },
+    {
+        "Banker Name" : "Chinmay Mankani",
+        "Employee ID" : 6501,
+        "Account Number" : 10004,
+        "Branch" : "Commercial",
+        "D.O.B" : "29-12-2004"
+    }
+]
