@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const app = express();
 // Routes
-const balanceRouter = require('./routers/balanceRouter');
+const accountRouter = require('./routers/accountRouter');
 // MongoDB connection URL and Database Name
 const dbName = 'Banking';
 const accountscollection = 'accounts_table';
@@ -11,7 +11,8 @@ app.use(express.json());
 
 async function connectToMongoDB(req, res, next) {
   try {
-       const url = `mongodb+srv://${process.env.MONGODB_URL}/?retryWrites=true&w=majority&appName=Cluster0`;
+       const url = `mongodb+srv://${process.env.MONGODB_URL}/Banking?retryWrites=true&w=majority&appName=Cluster0`;
+       console.log(url);
        mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
        .then(() => {
          console.log('MongoDB connected');
@@ -26,7 +27,9 @@ async function connectToMongoDB(req, res, next) {
 app.use(connectToMongoDB);
 
 
-app.use('/balance', balanceRouter);
+app.use('/account', accountRouter);
+//GET http://localhost:3000/user/balance/12334
+//response
 
 
 

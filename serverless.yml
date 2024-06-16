@@ -3,9 +3,10 @@ frameworkVersion: '3'
 
 provider:
   name: aws
+  region: ap-south-1
   runtime: nodejs18.x
   environment:
-    MONGODB_URI: ${env:MONGODB_URL}
+    MONGODB_URL: agarwalanit04:hr26ap2791@cluster0.hba2zri.mongodb.net
 
 functions:
   app:
