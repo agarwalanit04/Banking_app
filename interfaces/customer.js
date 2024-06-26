@@ -1,9 +1,11 @@
-class Customer{
-        Name: String;
-        phone: String;
-        Address: String;
-        PANNo:String;
-        AdharNumber: String;
-    };
+class Customer {
+    constructor() {
+        this.Name = '';
+        this.phone = '';
+        this.Address = '';
+        this.PANNo = '';
+        this.AdharNumber = '';
+    }
+}
 
 module.exports = Customer;
