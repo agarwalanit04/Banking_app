@@ -10,6 +10,6 @@ const customer = new mongoose.Schema(
 
   });
   
-  const Customer= mongoose.model('custmer',customer);
+  const Customer= mongoose.model('customer',customer);
   //export default Account;
   module.exports = Customer;
