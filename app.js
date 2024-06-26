@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const app = express();
 // Routes
 const accountRouter = require('./routers/accountRouter');
+// const customerRouter = require('./routers/customerRouter');
+const transactionRouter = require('./routers/transactionRouter');
+// const userRouter = require('./routers/userRouter');
+
 // MongoDB connection URL and Database Name
 const dbName = 'Banking';
 const accountscollection = 'accounts_table';
@@ -28,6 +32,11 @@ app.use(connectToMongoDB);
 
 
 app.use('/account', accountRouter);
+// app.use('/customer', customerRouter);
+app.use('/transaction', transactionRouter);
+// app.use('/user', userRouter);
+
+
 //GET http://localhost:3000/user/balance/12334
 //response
 
