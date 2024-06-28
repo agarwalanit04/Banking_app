@@ -13,6 +13,6 @@ const user = new mongoose.Schema(
 
   });
   
-  const Userr= mongoose.model('user',user);
+  const User= mongoose.model('user',user);
   //export default Account;
   module.exports = User;

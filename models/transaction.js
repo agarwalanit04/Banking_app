@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const transaction = new mongoose.Schema(
+const transactionSchema = new mongoose.Schema(
     {
         TransactionDate: String,
         TransactionType: String,
@@ -10,6 +10,6 @@ const transaction = new mongoose.Schema(
 
   });
   
-  const Transaction= mongoose.model('transaction',transaction);
+  const Transaction= mongoose.model('Transaction',transactionSchema);
  
   module.exports = Transaction;
