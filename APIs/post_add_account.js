@@ -30,10 +30,8 @@ async function connectToMongoDB() {
     }
 }
 
-connectToMongoDB();
-
 // Define the API endpoint to add an user
-app.post('/userdetails', async (req, res) => {
+app.post('/addaccount', async (req, res) => {
     try {
         const userDetails = req.body;
         

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { MongoClient } = require('mongodb');
 const app = express();
 const port = 3000;
+const Account = require("./../models/account");
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -29,8 +30,6 @@ async function connectToMongoDB() {
         process.exit(1);
     }
 }
-
-connectToMongoDB();
 
 // Define the API endpoint to find an account
 app.get('/userdetails/:accountNumber', async (req, res) => {

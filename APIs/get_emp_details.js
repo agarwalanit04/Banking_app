@@ -30,8 +30,6 @@ async function connectToMongoDB() {
     }
 }
 
-connectToMongoDB();
-
 // Define the API endpoint to give an emp their details
 app.get('/empdetails/:accountNumber', async (req, res) => {
     try {

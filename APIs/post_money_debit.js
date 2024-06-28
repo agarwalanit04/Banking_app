@@ -30,8 +30,6 @@ async function connectToMongoDB() {
     }
 }
 
-connectToMongoDB();
-
 // Define an API end point to debit the money
 app.post('/debit', async (req, res) => {
     const { senderAccount, receiverAccount, amount } = req.body; // get sender&reciever account number
