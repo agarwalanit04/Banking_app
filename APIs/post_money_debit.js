@@ -10,25 +10,10 @@ const port = 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// MongoDB connection URL and Database Name
-const url = 'mongodb+srv://agarwalanit04:hr26ap2791@cluster0.hba2zri.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const dbName = 'Banking';
-const creditmoney = 'accounts_table'; 
-
 const client = new MongoClient(url, {
      useNewUrlParser: true, 
      useUnifiedTopology: true }
 );
-
-async function connectToMongoDB() {
-    try {
-        await client.connect();
-        console.log("Connected successfully to server");
-    } catch (err) {
-        console.error("Failed to connect to MongoDB", err);
-        process.exit(1);
-    }
-}
 
 // Define an API end point to debit the money
 app.post('/debit', async (req, res) => {
