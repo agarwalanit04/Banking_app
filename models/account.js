@@ -5,9 +5,9 @@ const account = new mongoose.Schema(
     {
         AccountNumber : Number,
         AccountType : String,
-        Balance : String,
-        LastTransaction : Date,
-        AccountCreated : Date,
+        Balance : Number,
+        LastTransaction : String,
+        AccountCreated : String,
         AccountHolder_Type : String,
         Holder: ObjectId
   });
