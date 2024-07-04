@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Transaction = require('../models/transaction');
+// const Transaction = require('../models/transaction');
+const Account = require('../models/account');
 const TransactionObj = require('../interfaces/transaction');
 
 exports.transactionhistory = async (req, res) => {
@@ -20,117 +21,67 @@ exports.transactionhistory = async (req, res) => {
 exports.postcreditmoney = async(req, res) =>{                 
         // const session = client.startSession(); // Start a session for transaction management.
             try {
-            session.startTransaction(); // Start a transaction.
-            
-            const sender = await userCollection.findOne({ AccountNumber: senderAccount }, { session }); // Find the sender account in the collection.
-            console.log("Sender account query:", { AccountNumber: senderAccount });
-            console.log("Sender found:", sender);
-            const receiver = await userCollection.findOne({ AccountNumber: receiverAccount }, { session }); // Find the receiver account in the collection.
-        
-            if (!sender) {
-                await session.abortTransaction(); // Abort transaction if sender account is not found.
-                return res.status(404).json({ message: 'Sender account not found' }); // Return error response.
-            }
-        
-            if (!receiver) {
-                await session.abortTransaction(); // Abort transaction if receiver account is not found.
-                return res.status(404).json({ message: 'Receiver account not found' }); // Return error response.
-            }
-        
-            if (sender.balance < amount) {
-                await session.abortTransaction(); // Abort transaction if sender has insufficient funds.
-                return res.status(400).json({ message: 'Insufficient funds' }); // Return error response.
-            }
-        
-            const updateSender = await userCollection.updateOne(
-                { AccountNumber: senderAccount },
-                { $inc: { Balance: -amount } },
-                { session }
-            ); // Deduct the amount from the sender's balance.
-        
-            const updateReceiver = await userCollection.updateOne(
-                { AccountNumber: receiverAccount },
-                { $inc: { Balance: amount } },
-                { session }
-            ); // Add the amount to the receiver's balance.
-        
-            if (updateSender.modifiedCount === 1 && updateReceiver.modifiedCount === 1) {
-                await session.commitTransaction(); // Commit the transaction if both updates are successful.
-                res.status(200).json({ message: 'Transfer successful' }); // Return success response.
-            } else {
-                await session.abortTransaction(); // Abort transaction if any update fails.
-                res.status(500).json({ message: 'Transfer failed' }); // Return error response.
-            }
-        
-            } catch (err) {
-            await session.abortTransaction(); // Abort transaction on error.
-            console.error("Error during transfer:", err); // Log the error.
-            res.status(500).json({ message: 'Internal server error' }); // Return a generic error response.
-            } finally {
-            session.endSession(); // End the session.
-            }
-    };
-
-    exports.postdebitmoney = async(req, res) =>{
-        const { senderAccount, receiverAccount, amount } = req.body; // get sender&reciever account number
-    
-    if (!senderAccount || !receiverAccount || !amount) {
-      return res.status(400).json({ message: 'Please provide senderAccount, receiverAccount, and amount' }); // Return error if any required parameter is missing.
-    }
-  
-    const db = client.db(dbName); // Get the database instance.
-    const userCollection = db.collection(creditmoney); // Get the collection for user details.
-  
-    const session = client.startSession(); // Start a session for transaction management.
-  
-    try {
-      session.startTransaction(); // Start a transaction.
+              const transactDetails = req.body;
       
-      const sender = await userCollection.findOne({ AccountNumber: senderAccount }, { session }); // Find the sender account in the collection.
-      console.log("Sender account query:", { AccountNumber: senderAccount });
-    console.log("Sender found:", sender);
-      const receiver = await userCollection.findOne({ AccountNumber: receiverAccount }, { session }); // Find the receiver account in the collection.
-  
-      if (!sender) {
-        await session.abortTransaction(); // Abort transaction if sender account is not found.
-        return res.status(404).json({ message: 'Sender account not found' }); // Return error response.
-      }
-  
-      if (!receiver) {
-        await session.abortTransaction(); // Abort transaction if receiver account is not found.
-        return res.status(404).json({ message: 'Receiver account not found' }); // Return error response.
-      }
-  
-      if (sender.balance < amount) {
-        await session.abortTransaction(); // Abort transaction if sender has insufficient funds.
-        return res.status(400).json({ message: 'Insufficient funds' }); // Return error response.
-      }
-  
-      const updateSender = await userCollection.updateOne(
-        { AccountNumber: senderAccount },
-        { $inc: { Balance: -amount } },
-        { session }
-      ); // Deduct the amount from the sender's balance.
-  
-      const updateReceiver = await userCollection.updateOne(
-        { AccountNumber: receiverAccount },
-        { $inc: { Balance: amount } },
-        { session }
-      ); // Add the amount to the receiver's balance.
-  
-      if (updateSender.modifiedCount === 1 && updateReceiver.modifiedCount === 1) {
-        await session.commitTransaction(); // Commit the transaction if both updates are successful.
-        res.status(200).json({ message: 'Transfer successful' }); // Return success response.
-      } else {
-        await session.abortTransaction(); // Abort transaction if any update fails.
-        res.status(500).json({ message: 'Transfer failed' }); // Return error response.
-      }
-  
-    } catch (err) {
-      await session.abortTransaction(); // Abort transaction on error.
-      console.error("Error during transfer:", err); // Log the error.
-      res.status(500).json({ message: 'Internal server error' }); // Return a generic error response.
-    } finally {
-      session.endSession(); // End the session.
-    }
-  };
+              console.log("Request body is: " + JSON.stringify(req.body, null, 2));
+              console.log("userDetails is: " + JSON.stringify(transactDetails, null, 2));
+      
+              
+              // const db = client.db(dbName);
+              // const accountCollection = db.collection('Account');
+      
+              console.log("Paid To: " + transactDetails.PaidTo + " Recieved: " + transactDetails.Receiver + 
+                          " Transaction Type: " + transactDetails.TransactionType + " Amount: " + transactDetails.Amount);
+      
+              const receiver = await Account.findOne({ AccountNumber: req.body.PaidTo });
+              // console.log("receiver: " + JSON.stringify(receiver, null, 2));
+              if (!receiver) {
+                  console.log("Returning 400: Receiver account does not exist");
+                  return res.status(400).json({ error: "Receiver account doesn't exist" });
+              }
+      
+              const sender = await Account.findOne({ AccountNumber: req.body.Receiver });
+              console.log("sender: " + JSON.stringify(sender, null, 2));
+              if (!sender) {
+                  console.log("Returning 400: Sender account does not exist");
+                  return res.status(400).json({ error: "Sender account doesn't exist" });
+              }
+      
+              const Amount = parseInt(req.body.Amount);
+              const transactionType = req.body.TransactionType;
+      
+              if (transactionType === 'Credit') {
+                  if (sender.Balance < Amount) {
+                      return res.status(400).json({ message: 'Insufficient funds' });
+                  }
+      
+                  const updateSender = await Account.updateOne(
+                      { AccountNumber: req.body.Receiver },
+                      { $inc: { Balance: -Amount } }
+                  );
+      
+                  const updateReceiver = await Account.updateOne(
+                      { AccountNumber: req.body.PaidTo },
+                      { $inc: { Balance: Amount } }
+                  );
+      
+              } else if (transactionType === 'Debit') {
+                  if (sender.Balance >= Amount) {
+                      const updateSender = await Account.updateOne(
+                          { AccountNumber: req.body.Receiver },
+                          { $inc: { Balance: -Amount } }
+                      );
+                  } else {
+                      return res.status(400).json({ message: 'Insufficient funds' });
+                  }
+              } else {
+                  return res.status(400).json({ message: 'Invalid transaction type' });
+              }
+      
+              res.status(200).json({ message: 'Transaction successful' });
+      
+          } catch (err) {
+              console.error("Error during transaction:", err);
+              res.status(500).json({ message: 'Internal server error' });
+          }
+};
