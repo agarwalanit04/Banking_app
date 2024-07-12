@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const {ObjectId } = require("mongodb");
-//const Customer = require("../interfaces/customer");
 const account = new mongoose.Schema(
     {
         AccountNumber : Number,
